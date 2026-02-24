@@ -1,0 +1,55 @@
+# โครงสร้างพื้นฐาน Assignment 07 (Skeletal Version)
+
+name: ${PROJECT_NAME}
+
+services:
+  # 1. ฐานข้อมูล (Database)
+  db-server:
+    image: 
+    container_name: ${MY_USERNAME}-db
+    # [ยังไม่ได้เชื่อมต่อ networks]
+    # [ยังไม่ได้เชื่อมต่อ volumes]
+    # [ยังไม่ได้เชื่อมต่อ secrets]
+
+  # 2. ส่วนประมวลผล (Backend)
+  backend-api:
+    image: 
+    container_name: ${MY_USERNAME}-api
+    # [ยังไม่ได้เชื่อมต่อ networks]
+    # [ยังไม่ได้เชื่อมต่อ volumes]
+
+  # 3. ส่วนรับงานหน้าบ้าน (Web Proxy)
+  web-proxy:
+    image: 
+    container_name: ${MY_USERNAME}-web
+    # [ยังไม่ได้เชื่อมต่อ networks]
+    # [ยังไม่ได้เชื่อมต่อ configs]
+
+  # 4. ส่วนจัดการฐานข้อมูล (phpMyAdmin)
+  db-management:
+    image: 
+    container_name: ${MY_USERNAME}-pma
+    # [ยังไม่ได้เชื่อมต่อ networks]
+
+# --------------------------------------------------
+# ส่วนประกาศทรัพยากรส่วนกลาง (Top-level Elements)
+# --------------------------------------------------
+
+networks:
+  frontend-zone:
+    driver: bridge
+  backend-zone:
+    driver: bridge
+
+volumes:
+  db-storage:
+
+configs:
+  my-nginx-conf:
+    file: ./my-nginx.conf
+
+secrets:
+  db_root_pass:
+    file: ./.db_root.txt
+  db_user_pass:
+    file: ./.db_pass.txt
