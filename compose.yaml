@@ -47,7 +47,7 @@ services:
         target: /etc/nginx/conf.d/default.conf
     networks:
       - ????????????-zone # ต้องเชื่อมกับ frontend เพื่อให้ Nginx รับ Request จาก frontend ได้
-      - ????????????-zone # ต้องเชื่อม Backend เพื่อส่งต่อ Request
+- ????????????-zone # ต้องเชื่อม Backend เพื่อส่งต่อ Request
     depends_on:
       - backend-php # ต้องรอให้ Backend พร้อมก่อนถึงจะเริ่มทำงานได้
 
