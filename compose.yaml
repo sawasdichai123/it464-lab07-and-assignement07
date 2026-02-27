@@ -5,14 +5,14 @@ name: ${PROJECT_NAME} # ใช้ตัวแปรจาก .env เพื่�
 services:
   # 1. ฐานข้อมูล (Database)
   db-server:
-    image: mariadb:10.6
+    image: mysql:8.0
     container_name: ${MY_USERNAME}-db # ใช้ตัวแปรจาก .env เพื่อกำหนดชื่อคอนเทนเนอร์
     restart: always
     environment:
-      MARIADB_DATABASE: ${DB_NAME}
-      MARIADB_USER: app_user
-      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_root_pass # ใช้ Secret
-      MARIADB_PASSWORD_FILE: /run/secrets/db_user_pass # ใช้ Secret
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: app_user
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_pass # ใช้ Secret
+      MYSQL_PASSWORD_FILE: /run/secrets/db_user_pass # ใช้ Secret
     networks:
       - backend-zone # ต้องเชื่อมกับ Backend เพื่อให้ Backend ติดต่อ DB ได้
     volumes:

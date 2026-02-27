@@ -7,7 +7,7 @@ function readSecret($secretName) {
 $host = 'db-server';
 $user = 'app_user';
 $pass = readSecret('db_user_pass');
-$db   = 'my_app_db';
+$db   = 'registration_db';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
